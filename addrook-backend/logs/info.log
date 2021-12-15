@@ -1,0 +1,636 @@
+2021-12-15 17:27:19.324 ERROR 4076 --- [restartedMain] org.springframework.boot.SpringApplication - Application run failed
+org.springframework.boot.context.properties.bind.BindException: Failed to bind properties under 'logging.level.com' to org.springframework.boot.logging.LogLevel
+	at org.springframework.boot.context.properties.bind.Binder.handleBindError(Binder.java:363)
+	at org.springframework.boot.context.properties.bind.Binder.bind(Binder.java:323)
+	at org.springframework.boot.context.properties.bind.Binder.lambda$null$1(Binder.java:411)
+	at org.springframework.boot.context.properties.bind.Binder$Context.withSource(Binder.java:542)
+	at org.springframework.boot.context.properties.bind.Binder$Context.access$800(Binder.java:512)
+	at org.springframework.boot.context.properties.bind.Binder.lambda$bindAggregate$2(Binder.java:412)
+	at org.springframework.boot.context.properties.bind.AggregateElementBinder.bind(AggregateElementBinder.java:39)
+	at org.springframework.boot.context.properties.bind.MapBinder$EntryBinder.lambda$bindEntries$0(MapBinder.java:157)
+	at java.util.HashMap.computeIfAbsent(HashMap.java:1127)
+	at org.springframework.boot.context.properties.bind.MapBinder$EntryBinder.bindEntries(MapBinder.java:157)
+	at org.springframework.boot.context.properties.bind.MapBinder.bindAggregate(MapBinder.java:68)
+	at org.springframework.boot.context.properties.bind.AggregateBinder.bind(AggregateBinder.java:56)
+	at org.springframework.boot.context.properties.bind.Binder.lambda$bindAggregate$3(Binder.java:414)
+	at org.springframework.boot.context.properties.bind.Binder$Context.withIncreasedDepth(Binder.java:571)
+	at org.springframework.boot.context.properties.bind.Binder$Context.access$100(Binder.java:512)
+	at org.springframework.boot.context.properties.bind.Binder.bindAggregate(Binder.java:414)
+	at org.springframework.boot.context.properties.bind.Binder.bindObject(Binder.java:375)
+	at org.springframework.boot.context.properties.bind.Binder.bind(Binder.java:319)
+	at org.springframework.boot.context.properties.bind.Binder.bind(Binder.java:308)
+	at org.springframework.boot.context.properties.bind.Binder.bind(Binder.java:238)
+	at org.springframework.boot.context.properties.bind.Binder.bind(Binder.java:212)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.setLogLevels(LoggingApplicationListener.java:368)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeFinalLoggingLevels(LoggingApplicationListener.java:335)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.initialize(LoggingApplicationListener.java:282)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEnvironmentPreparedEvent(LoggingApplicationListener.java:239)
+	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEvent(LoggingApplicationListener.java:216)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:127)
+	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:80)
+	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:53)
+	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:342)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1247)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1236)
+	at org.example.SystemApplicationStarter.main(SystemApplicationStarter.java:16)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: org.springframework.core.convert.ConversionFailedException: Failed to convert from type [java.lang.String] to type [org.springframework.boot.logging.LogLevel] for value 'springboot:debug'; nested exception is java.lang.IllegalArgumentException: No enum constant org.springframework.boot.logging.LogLevel.springboot:debug
+	at org.springframework.core.convert.support.ConversionUtils.invokeConverter(ConversionUtils.java:47)
+	at org.springframework.core.convert.support.GenericConversionService.convert(GenericConversionService.java:192)
+	at org.springframework.boot.context.properties.bind.BindConverter$CompositeConversionService.convert(BindConverter.java:170)
+	at org.springframework.boot.context.properties.bind.BindConverter.convert(BindConverter.java:96)
+	at org.springframework.boot.context.properties.bind.BindConverter.convert(BindConverter.java:88)
+	at org.springframework.boot.context.properties.bind.Binder.bindProperty(Binder.java:434)
+	at org.springframework.boot.context.properties.bind.Binder.bindObject(Binder.java:379)
+	at org.springframework.boot.context.properties.bind.Binder.bind(Binder.java:319)
+	... 40 common frames omitted
+Caused by: java.lang.IllegalArgumentException: No enum constant org.springframework.boot.logging.LogLevel.springboot:debug
+	at org.springframework.boot.convert.LenientObjectToEnumConverterFactory$LenientToEnumConverter.findEnum(LenientObjectToEnumConverterFactory.java:93)
+	at org.springframework.boot.convert.LenientObjectToEnumConverterFactory$LenientToEnumConverter.convert(LenientObjectToEnumConverterFactory.java:80)
+	at org.springframework.boot.convert.LenientObjectToEnumConverterFactory$LenientToEnumConverter.convert(LenientObjectToEnumConverterFactory.java:61)
+	at org.springframework.core.convert.support.GenericConversionService$ConverterFactoryAdapter.convert(GenericConversionService.java:437)
+	at org.springframework.core.convert.support.ConversionUtils.invokeConverter(ConversionUtils.java:41)
+	... 47 common frames omitted
+2021-12-15 17:29:36.967 INFO  14468 --- [background-preinit] org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.1.7.Final
+2021-12-15 17:29:37.000 INFO  14468 --- [restartedMain] org.example.SystemApplicationStarter - Starting SystemApplicationStarter on wobenwangzhe with PID 14468 (F:\ideaspace\addrook-backend\target\classes started by 王晗 in F:\ideaspace\addrook-backend)
+2021-12-15 17:29:37.000 INFO  14468 --- [restartedMain] org.example.SystemApplicationStarter - The following profiles are active: mybatisplus
+2021-12-15 17:29:37.047 INFO  14468 --- [restartedMain] o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-12-15 17:29:37.047 INFO  14468 --- [restartedMain] o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-12-15 17:29:37.724 INFO  14468 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-12-15 17:29:37.726 INFO  14468 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-12-15 17:29:37.748 INFO  14468 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 12ms. Found 0 Redis repository interfaces.
+2021-12-15 17:29:37.866 WARN  14468 --- [restartedMain] org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'userDao' and 'org.example.addrook.dao.UserDao' mapperInterface. Bean already defined with the same name!
+2021-12-15 17:29:37.866 WARN  14468 --- [restartedMain] org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[org.example.addrook.dao]' package. Please check your configuration.
+2021-12-15 17:29:38.185 INFO  14468 --- [restartedMain] o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 80 (http)
+2021-12-15 17:29:38.192 INFO  14468 --- [restartedMain] org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+2021-12-15 17:29:38.192 INFO  14468 --- [restartedMain] org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-12-15 17:29:38.193 INFO  14468 --- [restartedMain] org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.46]
+2021-12-15 17:29:38.314 INFO  14468 --- [restartedMain] o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-12-15 17:29:38.315 INFO  14468 --- [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1267 ms
+2021-12-15 17:29:38.406 INFO  14468 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-12-15 17:29:38.584 INFO  14468 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2021-12-15 17:29:39.522 INFO  14468 --- [restartedMain] o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-12-15 17:29:39.546 INFO  14468 --- [restartedMain] o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-12-15 17:29:39.721 INFO  14468 --- [restartedMain] org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+2021-12-15 17:29:39.739 INFO  14468 --- [restartedMain] o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 80 (http) with context path ''
+2021-12-15 17:29:39.902 INFO  14468 --- [restartedMain] org.example.SystemApplicationStarter - Started SystemApplicationStarter in 3.376 seconds (JVM running for 4.199)
+2021-12-15 17:29:45.375 INFO  14468 --- [SpringContextShutdownHook] o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-12-15 17:29:45.394 INFO  14468 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closing ...
+2021-12-15 17:29:45.397 INFO  14468 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2021-12-15 17:29:52.664 INFO  17768 --- [background-preinit] org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.1.7.Final
+2021-12-15 17:29:52.728 INFO  17768 --- [restartedMain] org.example.SystemApplicationStarter - Starting SystemApplicationStarter on wobenwangzhe with PID 17768 (F:\ideaspace\addrook-backend\target\classes started by 王晗 in F:\ideaspace\addrook-backend)
+2021-12-15 17:29:52.729 INFO  17768 --- [restartedMain] org.example.SystemApplicationStarter - The following profiles are active: mybatisplus
+2021-12-15 17:29:52.786 INFO  17768 --- [restartedMain] o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-12-15 17:29:52.786 INFO  17768 --- [restartedMain] o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-12-15 17:29:53.483 INFO  17768 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-12-15 17:29:53.485 INFO  17768 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-12-15 17:29:53.507 INFO  17768 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 12ms. Found 0 Redis repository interfaces.
+2021-12-15 17:29:53.624 WARN  17768 --- [restartedMain] org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'userDao' and 'org.example.addrook.dao.UserDao' mapperInterface. Bean already defined with the same name!
+2021-12-15 17:29:53.624 WARN  17768 --- [restartedMain] org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[org.example.addrook.dao]' package. Please check your configuration.
+2021-12-15 17:29:54.000 INFO  17768 --- [restartedMain] o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 80 (http)
+2021-12-15 17:29:54.008 INFO  17768 --- [restartedMain] org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+2021-12-15 17:29:54.008 INFO  17768 --- [restartedMain] org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-12-15 17:29:54.009 INFO  17768 --- [restartedMain] org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.46]
+2021-12-15 17:29:54.136 INFO  17768 --- [restartedMain] o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-12-15 17:29:54.136 INFO  17768 --- [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1349 ms
+2021-12-15 17:29:54.232 INFO  17768 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-12-15 17:29:54.421 INFO  17768 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2021-12-15 17:29:55.387 INFO  17768 --- [restartedMain] o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-12-15 17:29:55.411 INFO  17768 --- [restartedMain] o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-12-15 17:29:55.597 INFO  17768 --- [restartedMain] org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+2021-12-15 17:29:55.615 INFO  17768 --- [restartedMain] o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 80 (http) with context path ''
+2021-12-15 17:29:55.787 INFO  17768 --- [restartedMain] org.example.SystemApplicationStarter - Started SystemApplicationStarter in 3.543 seconds (JVM running for 4.318)
+2021-12-15 17:30:05.050 INFO  17768 --- [SpringContextShutdownHook] o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-12-15 17:30:05.068 INFO  17768 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closing ...
+2021-12-15 17:30:05.071 INFO  17768 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2021-12-15 17:31:17.995 INFO  11324 --- [background-preinit] org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.1.7.Final
+2021-12-15 17:31:18.030 INFO  11324 --- [restartedMain] org.example.SystemApplicationStarter - Starting SystemApplicationStarter on wobenwangzhe with PID 11324 (F:\ideaspace\addrook-backend\target\classes started by 王晗 in F:\ideaspace\addrook-backend)
+2021-12-15 17:31:18.030 INFO  11324 --- [restartedMain] org.example.SystemApplicationStarter - The following profiles are active: mybatisplus
+2021-12-15 17:31:18.075 INFO  11324 --- [restartedMain] o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-12-15 17:31:18.075 INFO  11324 --- [restartedMain] o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-12-15 17:31:18.752 INFO  11324 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-12-15 17:31:18.754 INFO  11324 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-12-15 17:31:18.776 INFO  11324 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 12ms. Found 0 Redis repository interfaces.
+2021-12-15 17:31:18.894 WARN  11324 --- [restartedMain] org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'userDao' and 'org.example.addrook.dao.UserDao' mapperInterface. Bean already defined with the same name!
+2021-12-15 17:31:18.895 WARN  11324 --- [restartedMain] org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[org.example.addrook.dao]' package. Please check your configuration.
+2021-12-15 17:31:19.210 INFO  11324 --- [restartedMain] o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 80 (http)
+2021-12-15 17:31:19.217 INFO  11324 --- [restartedMain] org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+2021-12-15 17:31:19.217 INFO  11324 --- [restartedMain] org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-12-15 17:31:19.217 INFO  11324 --- [restartedMain] org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.46]
+2021-12-15 17:31:19.339 INFO  11324 --- [restartedMain] o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-12-15 17:31:19.339 INFO  11324 --- [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1263 ms
+2021-12-15 17:31:19.432 INFO  11324 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-12-15 17:31:19.611 INFO  11324 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2021-12-15 17:31:20.554 INFO  11324 --- [restartedMain] o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-12-15 17:31:20.577 INFO  11324 --- [restartedMain] o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-12-15 17:31:20.753 INFO  11324 --- [restartedMain] org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+2021-12-15 17:31:20.770 INFO  11324 --- [restartedMain] o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 80 (http) with context path ''
+2021-12-15 17:31:20.933 INFO  11324 --- [restartedMain] org.example.SystemApplicationStarter - Started SystemApplicationStarter in 3.348 seconds (JVM running for 4.182)
+2021-12-15 17:31:38.188 INFO  11324 --- [http-nio-80-exec-1] o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-15 17:31:38.189 INFO  11324 --- [http-nio-80-exec-1] org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-12-15 17:31:38.193 INFO  11324 --- [http-nio-80-exec-1] org.springframework.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+2021-12-15 17:31:45.041 INFO  11324 --- [SpringContextShutdownHook] o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-12-15 17:31:45.055 INFO  11324 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closing ...
+2021-12-15 17:31:45.058 INFO  11324 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2021-12-15 18:17:03.286 INFO  14228 --- [background-preinit] org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.1.7.Final
+2021-12-15 18:17:03.324 INFO  14228 --- [restartedMain] org.example.SystemApplicationStarter - Starting SystemApplicationStarter on wobenwangzhe with PID 14228 (F:\ideaspace\addrook-backend\target\classes started by 王晗 in F:\ideaspace\addrook-backend)
+2021-12-15 18:17:03.324 INFO  14228 --- [restartedMain] org.example.SystemApplicationStarter - The following profiles are active: mybatisplus
+2021-12-15 18:17:03.373 INFO  14228 --- [restartedMain] o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-12-15 18:17:03.373 INFO  14228 --- [restartedMain] o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-12-15 18:17:04.057 INFO  14228 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-12-15 18:17:04.059 INFO  14228 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-12-15 18:17:04.081 INFO  14228 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 13ms. Found 0 Redis repository interfaces.
+2021-12-15 18:17:04.200 WARN  14228 --- [restartedMain] org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'userDao' and 'org.example.addrook.dao.UserDao' mapperInterface. Bean already defined with the same name!
+2021-12-15 18:17:04.200 WARN  14228 --- [restartedMain] org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[org.example.addrook.dao]' package. Please check your configuration.
+2021-12-15 18:17:04.525 INFO  14228 --- [restartedMain] o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 80 (http)
+2021-12-15 18:17:04.532 INFO  14228 --- [restartedMain] org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+2021-12-15 18:17:04.532 INFO  14228 --- [restartedMain] org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-12-15 18:17:04.532 INFO  14228 --- [restartedMain] org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.46]
+2021-12-15 18:17:04.660 INFO  14228 --- [restartedMain] o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-12-15 18:17:04.660 INFO  14228 --- [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1286 ms
+2021-12-15 18:17:04.761 INFO  14228 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-12-15 18:17:04.947 INFO  14228 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2021-12-15 18:17:05.913 INFO  14228 --- [restartedMain] o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-12-15 18:17:05.937 INFO  14228 --- [restartedMain] o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-12-15 18:17:06.118 INFO  14228 --- [restartedMain] org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+2021-12-15 18:17:06.136 INFO  14228 --- [restartedMain] o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 80 (http) with context path ''
+2021-12-15 18:17:06.307 INFO  14228 --- [restartedMain] org.example.SystemApplicationStarter - Started SystemApplicationStarter in 3.361 seconds (JVM running for 4.214)
+2021-12-15 18:17:28.761 INFO  14228 --- [http-nio-80-exec-1] o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-15 18:17:28.761 INFO  14228 --- [http-nio-80-exec-1] org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-12-15 18:17:28.766 INFO  14228 --- [http-nio-80-exec-1] org.springframework.web.servlet.DispatcherServlet - Completed initialization in 5 ms
+2021-12-15 18:18:34.380 INFO  14228 --- [Thread-10] o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-12-15 18:18:34.399 INFO  14228 --- [Thread-10] com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closing ...
+2021-12-15 18:18:34.400 INFO  14228 --- [Thread-10] com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2021-12-15 18:18:34.603 INFO  14228 --- [restartedMain] org.example.SystemApplicationStarter - Starting SystemApplicationStarter on wobenwangzhe with PID 14228 (F:\ideaspace\addrook-backend\target\classes started by 王晗 in F:\ideaspace\addrook-backend)
+2021-12-15 18:18:34.603 INFO  14228 --- [restartedMain] org.example.SystemApplicationStarter - The following profiles are active: mybatisplus
+2021-12-15 18:18:34.960 INFO  14228 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-12-15 18:18:34.960 INFO  14228 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-12-15 18:18:34.966 INFO  14228 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5ms. Found 0 Redis repository interfaces.
+2021-12-15 18:18:35.021 WARN  14228 --- [restartedMain] org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'userDao' and 'org.example.addrook.dao.UserDao' mapperInterface. Bean already defined with the same name!
+2021-12-15 18:18:35.021 WARN  14228 --- [restartedMain] org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[org.example.addrook.dao]' package. Please check your configuration.
+2021-12-15 18:18:35.586 INFO  14228 --- [restartedMain] o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 80 (http)
+2021-12-15 18:18:35.587 INFO  14228 --- [restartedMain] org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+2021-12-15 18:18:35.588 INFO  14228 --- [restartedMain] org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-12-15 18:18:35.588 INFO  14228 --- [restartedMain] org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.46]
+2021-12-15 18:18:35.613 INFO  14228 --- [restartedMain] o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-12-15 18:18:35.613 INFO  14228 --- [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1007 ms
+2021-12-15 18:18:35.664 INFO  14228 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-12-15 18:18:35.720 INFO  14228 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource - {dataSource-2} inited
+2021-12-15 18:18:36.022 INFO  14228 --- [restartedMain] o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-12-15 18:18:36.031 INFO  14228 --- [restartedMain] o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-12-15 18:18:36.109 INFO  14228 --- [restartedMain] org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+2021-12-15 18:18:36.115 INFO  14228 --- [restartedMain] o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 80 (http) with context path ''
+2021-12-15 18:18:36.163 INFO  14228 --- [restartedMain] org.example.SystemApplicationStarter - Started SystemApplicationStarter in 1.607 seconds (JVM running for 94.071)
+2021-12-15 18:18:36.166 INFO  14228 --- [restartedMain] o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-12-15 18:18:44.694 INFO  14228 --- [http-nio-80-exec-1] o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-15 18:18:44.695 INFO  14228 --- [http-nio-80-exec-1] org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-12-15 18:18:44.701 INFO  14228 --- [http-nio-80-exec-1] org.springframework.web.servlet.DispatcherServlet - Completed initialization in 6 ms
+2021-12-15 18:19:27.752 INFO  14228 --- [Thread-19] o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-12-15 18:19:27.756 INFO  14228 --- [Thread-19] com.alibaba.druid.pool.DruidDataSource - {dataSource-2} closing ...
+2021-12-15 18:19:27.764 INFO  14228 --- [Thread-19] com.alibaba.druid.pool.DruidDataSource - {dataSource-2} closed
+2021-12-15 18:19:28.006 INFO  14228 --- [restartedMain] org.example.SystemApplicationStarter - Starting SystemApplicationStarter on wobenwangzhe with PID 14228 (F:\ideaspace\addrook-backend\target\classes started by 王晗 in F:\ideaspace\addrook-backend)
+2021-12-15 18:19:28.006 INFO  14228 --- [restartedMain] org.example.SystemApplicationStarter - The following profiles are active: mybatisplus
+2021-12-15 18:19:28.408 INFO  14228 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-12-15 18:19:28.408 INFO  14228 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-12-15 18:19:28.415 INFO  14228 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 6ms. Found 0 Redis repository interfaces.
+2021-12-15 18:19:28.527 INFO  14228 --- [restartedMain] o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 80 (http)
+2021-12-15 18:19:28.527 INFO  14228 --- [restartedMain] org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+2021-12-15 18:19:28.527 INFO  14228 --- [restartedMain] org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-12-15 18:19:28.527 INFO  14228 --- [restartedMain] org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.46]
+2021-12-15 18:19:28.551 INFO  14228 --- [restartedMain] o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-12-15 18:19:28.551 INFO  14228 --- [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 542 ms
+2021-12-15 18:19:28.568 WARN  14228 --- [restartedMain] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'userController': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'userService' available
+2021-12-15 18:19:28.569 INFO  14228 --- [restartedMain] org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2021-12-15 18:19:28.574 INFO  14228 --- [restartedMain] o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-12-15 18:19:28.588 ERROR 14228 --- [restartedMain] o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+A component required a bean named 'userService' that could not be found.
+
+
+Action:
+
+Consider defining a bean named 'userService' in your configuration.
+
+2021-12-15 18:21:02.417 INFO  14228 --- [restartedMain] org.example.SystemApplicationStarter - Starting SystemApplicationStarter on wobenwangzhe with PID 14228 (F:\ideaspace\addrook-backend\target\classes started by 王晗 in F:\ideaspace\addrook-backend)
+2021-12-15 18:21:02.417 INFO  14228 --- [restartedMain] org.example.SystemApplicationStarter - The following profiles are active: mybatisplus
+2021-12-15 18:21:02.790 INFO  14228 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-12-15 18:21:02.790 INFO  14228 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-12-15 18:21:02.807 INFO  14228 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 16ms. Found 0 Redis repository interfaces.
+2021-12-15 18:21:02.984 INFO  14228 --- [restartedMain] o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 80 (http)
+2021-12-15 18:21:02.985 INFO  14228 --- [restartedMain] org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+2021-12-15 18:21:02.985 INFO  14228 --- [restartedMain] org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-12-15 18:21:02.985 INFO  14228 --- [restartedMain] org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.46]
+2021-12-15 18:21:03.038 INFO  14228 --- [restartedMain] o.a.c.c.ContainerBase.[Tomcat-1].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-12-15 18:21:03.038 INFO  14228 --- [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 617 ms
+2021-12-15 18:21:03.180 INFO  14228 --- [restartedMain] o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-12-15 18:21:03.186 INFO  14228 --- [restartedMain] o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-12-15 18:21:03.213 INFO  14228 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-12-15 18:21:03.260 INFO  14228 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource - {dataSource-3} inited
+2021-12-15 18:21:04.228 INFO  14228 --- [restartedMain] org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+2021-12-15 18:21:04.233 INFO  14228 --- [restartedMain] o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 80 (http) with context path ''
+2021-12-15 18:21:04.277 INFO  14228 --- [restartedMain] org.example.SystemApplicationStarter - Started SystemApplicationStarter in 1.921 seconds (JVM running for 242.185)
+2021-12-15 18:21:04.279 INFO  14228 --- [restartedMain] o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-12-15 18:21:14.154 INFO  14228 --- [http-nio-80-exec-1] o.a.c.c.ContainerBase.[Tomcat-1].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-15 18:21:14.155 INFO  14228 --- [http-nio-80-exec-1] org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-12-15 18:21:14.162 INFO  14228 --- [http-nio-80-exec-1] org.springframework.web.servlet.DispatcherServlet - Completed initialization in 7 ms
+2021-12-15 18:22:35.815 INFO  14228 --- [Thread-24] com.alibaba.druid.pool.DruidDataSource - {dataSource-3} closing ...
+2021-12-15 18:22:35.816 INFO  14228 --- [Thread-24] com.alibaba.druid.pool.DruidDataSource - {dataSource-3} closed
+2021-12-15 18:22:35.817 INFO  14228 --- [Thread-24] o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-12-15 18:22:36.125 INFO  14228 --- [restartedMain] org.example.SystemApplicationStarter - Starting SystemApplicationStarter on wobenwangzhe with PID 14228 (F:\ideaspace\addrook-backend\target\classes started by 王晗 in F:\ideaspace\addrook-backend)
+2021-12-15 18:22:36.125 INFO  14228 --- [restartedMain] org.example.SystemApplicationStarter - The following profiles are active: mybatisplus
+2021-12-15 18:22:37.326 INFO  14228 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-12-15 18:22:37.326 INFO  14228 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-12-15 18:22:37.336 INFO  14228 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 10ms. Found 0 Redis repository interfaces.
+2021-12-15 18:22:37.390 WARN  14228 --- [restartedMain] org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'userDao' and 'org.example.addrook.dao.UserDao' mapperInterface. Bean already defined with the same name!
+2021-12-15 18:22:37.390 WARN  14228 --- [restartedMain] org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[org.example.addrook.dao]' package. Please check your configuration.
+2021-12-15 18:22:37.539 INFO  14228 --- [restartedMain] o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 80 (http)
+2021-12-15 18:22:37.540 INFO  14228 --- [restartedMain] org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+2021-12-15 18:22:37.540 INFO  14228 --- [restartedMain] org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-12-15 18:22:37.540 INFO  14228 --- [restartedMain] org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.46]
+2021-12-15 18:22:37.578 INFO  14228 --- [restartedMain] o.a.c.c.ContainerBase.[Tomcat-1].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-12-15 18:22:37.578 INFO  14228 --- [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1450 ms
+2021-12-15 18:22:37.624 INFO  14228 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-12-15 18:22:37.682 INFO  14228 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource - {dataSource-4} inited
+2021-12-15 18:22:38.026 INFO  14228 --- [restartedMain] o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-12-15 18:22:38.032 INFO  14228 --- [restartedMain] o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-12-15 18:22:38.095 INFO  14228 --- [restartedMain] org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+2021-12-15 18:22:38.100 INFO  14228 --- [restartedMain] o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 80 (http) with context path ''
+2021-12-15 18:22:38.137 INFO  14228 --- [restartedMain] org.example.SystemApplicationStarter - Started SystemApplicationStarter in 2.047 seconds (JVM running for 336.045)
+2021-12-15 18:22:38.139 INFO  14228 --- [restartedMain] o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-12-15 18:22:47.958 INFO  14228 --- [http-nio-80-exec-1] o.a.c.c.ContainerBase.[Tomcat-1].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-15 18:22:47.959 INFO  14228 --- [http-nio-80-exec-1] org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-12-15 18:22:47.962 INFO  14228 --- [http-nio-80-exec-1] org.springframework.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2021-12-15 18:44:20.605 INFO  14228 --- [Thread-32] o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-12-15 18:44:20.608 INFO  14228 --- [Thread-32] com.alibaba.druid.pool.DruidDataSource - {dataSource-4} closing ...
+2021-12-15 18:44:20.608 INFO  14228 --- [Thread-32] com.alibaba.druid.pool.DruidDataSource - {dataSource-4} closed
+2021-12-15 18:44:20.802 INFO  14228 --- [restartedMain] org.example.SystemApplicationStarter - Starting SystemApplicationStarter on wobenwangzhe with PID 14228 (F:\ideaspace\addrook-backend\target\classes started by 王晗 in F:\ideaspace\addrook-backend)
+2021-12-15 18:44:20.802 INFO  14228 --- [restartedMain] org.example.SystemApplicationStarter - The following profiles are active: mybatisplus
+2021-12-15 18:44:21.210 INFO  14228 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-12-15 18:44:21.211 INFO  14228 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-12-15 18:44:21.216 INFO  14228 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5ms. Found 0 Redis repository interfaces.
+2021-12-15 18:44:21.246 WARN  14228 --- [restartedMain] org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'userDao' and 'org.example.addrook.dao.UserDao' mapperInterface. Bean already defined with the same name!
+2021-12-15 18:44:21.246 WARN  14228 --- [restartedMain] org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[org.example.addrook.dao]' package. Please check your configuration.
+2021-12-15 18:44:21.335 INFO  14228 --- [restartedMain] o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 80 (http)
+2021-12-15 18:44:21.335 INFO  14228 --- [restartedMain] org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+2021-12-15 18:44:21.335 INFO  14228 --- [restartedMain] org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-12-15 18:44:21.336 INFO  14228 --- [restartedMain] org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.46]
+2021-12-15 18:44:21.358 INFO  14228 --- [restartedMain] o.a.c.c.ContainerBase.[Tomcat-1].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-12-15 18:44:21.358 INFO  14228 --- [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 553 ms
+2021-12-15 18:44:21.385 INFO  14228 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-12-15 18:44:21.423 INFO  14228 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource - {dataSource-5} inited
+2021-12-15 18:44:21.713 INFO  14228 --- [restartedMain] o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-12-15 18:44:21.719 INFO  14228 --- [restartedMain] o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-12-15 18:44:21.793 INFO  14228 --- [restartedMain] org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+2021-12-15 18:44:21.798 INFO  14228 --- [restartedMain] o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 80 (http) with context path ''
+2021-12-15 18:44:21.840 INFO  14228 --- [restartedMain] org.example.SystemApplicationStarter - Started SystemApplicationStarter in 1.07 seconds (JVM running for 1639.748)
+2021-12-15 18:44:21.841 INFO  14228 --- [restartedMain] o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-12-15 18:44:33.433 INFO  14228 --- [http-nio-80-exec-1] o.a.c.c.ContainerBase.[Tomcat-1].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-15 18:44:33.434 INFO  14228 --- [http-nio-80-exec-1] org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-12-15 18:44:33.438 INFO  14228 --- [http-nio-80-exec-1] org.springframework.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+2021-12-15 18:45:37.729 INFO  14228 --- [Thread-37] o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-12-15 18:45:37.734 INFO  14228 --- [Thread-37] com.alibaba.druid.pool.DruidDataSource - {dataSource-5} closing ...
+2021-12-15 18:45:37.734 INFO  14228 --- [Thread-37] com.alibaba.druid.pool.DruidDataSource - {dataSource-5} closed
+2021-12-15 18:45:38.022 INFO  14228 --- [restartedMain] org.example.SystemApplicationStarter - Starting SystemApplicationStarter on wobenwangzhe with PID 14228 (F:\ideaspace\addrook-backend\target\classes started by 王晗 in F:\ideaspace\addrook-backend)
+2021-12-15 18:45:38.022 INFO  14228 --- [restartedMain] org.example.SystemApplicationStarter - The following profiles are active: mybatisplus
+2021-12-15 18:45:38.335 INFO  14228 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-12-15 18:45:38.335 INFO  14228 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-12-15 18:45:38.340 INFO  14228 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5ms. Found 0 Redis repository interfaces.
+2021-12-15 18:45:38.368 WARN  14228 --- [restartedMain] org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'userDao' and 'org.example.addrook.dao.UserDao' mapperInterface. Bean already defined with the same name!
+2021-12-15 18:45:38.368 WARN  14228 --- [restartedMain] org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[org.example.addrook.dao]' package. Please check your configuration.
+2021-12-15 18:45:40.179 INFO  14228 --- [restartedMain] o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 80 (http)
+2021-12-15 18:45:40.180 INFO  14228 --- [restartedMain] org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+2021-12-15 18:45:40.180 INFO  14228 --- [restartedMain] org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-12-15 18:45:40.180 INFO  14228 --- [restartedMain] org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.46]
+2021-12-15 18:45:40.231 INFO  14228 --- [restartedMain] o.a.c.c.ContainerBase.[Tomcat-1].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-12-15 18:45:40.231 INFO  14228 --- [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2207 ms
+2021-12-15 18:45:40.257 INFO  14228 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-12-15 18:45:40.295 INFO  14228 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource - {dataSource-6} inited
+2021-12-15 18:45:40.562 INFO  14228 --- [restartedMain] o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-12-15 18:45:40.567 INFO  14228 --- [restartedMain] o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-12-15 18:45:40.625 INFO  14228 --- [restartedMain] org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+2021-12-15 18:45:40.629 INFO  14228 --- [restartedMain] o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 80 (http) with context path ''
+2021-12-15 18:45:40.664 INFO  14228 --- [restartedMain] org.example.SystemApplicationStarter - Started SystemApplicationStarter in 2.677 seconds (JVM running for 1718.572)
+2021-12-15 18:45:40.666 INFO  14228 --- [restartedMain] o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-12-15 18:45:49.007 INFO  14228 --- [http-nio-80-exec-1] o.a.c.c.ContainerBase.[Tomcat-1].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-15 18:45:49.007 INFO  14228 --- [http-nio-80-exec-1] org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-12-15 18:45:49.012 INFO  14228 --- [http-nio-80-exec-1] org.springframework.web.servlet.DispatcherServlet - Completed initialization in 5 ms
+2021-12-15 18:47:11.232 INFO  14228 --- [Thread-42] o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-12-15 18:47:11.235 INFO  14228 --- [Thread-42] com.alibaba.druid.pool.DruidDataSource - {dataSource-6} closing ...
+2021-12-15 18:47:11.238 INFO  14228 --- [Thread-42] com.alibaba.druid.pool.DruidDataSource - {dataSource-6} closed
+2021-12-15 18:47:11.389 INFO  14228 --- [restartedMain] org.example.SystemApplicationStarter - Starting SystemApplicationStarter on wobenwangzhe with PID 14228 (F:\ideaspace\addrook-backend\target\classes started by 王晗 in F:\ideaspace\addrook-backend)
+2021-12-15 18:47:11.389 INFO  14228 --- [restartedMain] org.example.SystemApplicationStarter - The following profiles are active: mybatisplus
+2021-12-15 18:47:11.758 INFO  14228 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-12-15 18:47:11.758 INFO  14228 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-12-15 18:47:11.768 INFO  14228 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 9ms. Found 0 Redis repository interfaces.
+2021-12-15 18:47:11.877 INFO  14228 --- [restartedMain] o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 80 (http)
+2021-12-15 18:47:11.878 INFO  14228 --- [restartedMain] org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+2021-12-15 18:47:11.878 INFO  14228 --- [restartedMain] org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-12-15 18:47:11.878 INFO  14228 --- [restartedMain] org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.46]
+2021-12-15 18:47:11.900 INFO  14228 --- [restartedMain] o.a.c.c.ContainerBase.[Tomcat-1].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-12-15 18:47:11.900 INFO  14228 --- [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 508 ms
+2021-12-15 18:47:11.916 WARN  14228 --- [restartedMain] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'userController': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'userService' available
+2021-12-15 18:47:11.916 INFO  14228 --- [restartedMain] org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2021-12-15 18:47:11.920 INFO  14228 --- [restartedMain] o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-12-15 18:47:11.922 ERROR 14228 --- [restartedMain] o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+A component required a bean named 'userService' that could not be found.
+
+
+Action:
+
+Consider defining a bean named 'userService' in your configuration.
+
+2021-12-15 18:47:24.572 INFO  14228 --- [restartedMain] org.example.SystemApplicationStarter - Starting SystemApplicationStarter on wobenwangzhe with PID 14228 (F:\ideaspace\addrook-backend\target\classes started by 王晗 in F:\ideaspace\addrook-backend)
+2021-12-15 18:47:24.572 INFO  14228 --- [restartedMain] org.example.SystemApplicationStarter - The following profiles are active: mybatisplus
+2021-12-15 18:47:24.896 INFO  14228 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-12-15 18:47:24.897 INFO  14228 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-12-15 18:47:24.901 INFO  14228 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 4ms. Found 0 Redis repository interfaces.
+2021-12-15 18:47:24.925 WARN  14228 --- [restartedMain] org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'userDao' and 'org.example.addrook.dao.UserDao' mapperInterface. Bean already defined with the same name!
+2021-12-15 18:47:24.925 WARN  14228 --- [restartedMain] org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[org.example.addrook.dao]' package. Please check your configuration.
+2021-12-15 18:47:24.977 INFO  14228 --- [restartedMain] o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 80 (http)
+2021-12-15 18:47:24.978 INFO  14228 --- [restartedMain] org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+2021-12-15 18:47:24.978 INFO  14228 --- [restartedMain] org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-12-15 18:47:24.978 INFO  14228 --- [restartedMain] org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.46]
+2021-12-15 18:47:25.010 INFO  14228 --- [restartedMain] o.a.c.c.ContainerBase.[Tomcat-2].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-12-15 18:47:25.010 INFO  14228 --- [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 432 ms
+2021-12-15 18:47:25.044 INFO  14228 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-12-15 18:47:25.105 INFO  14228 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource - {dataSource-7} inited
+2021-12-15 18:47:27.433 INFO  14228 --- [restartedMain] o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-12-15 18:47:27.439 INFO  14228 --- [restartedMain] o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-12-15 18:47:27.500 INFO  14228 --- [restartedMain] org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+2021-12-15 18:47:27.505 INFO  14228 --- [restartedMain] o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 80 (http) with context path ''
+2021-12-15 18:47:27.540 INFO  14228 --- [restartedMain] org.example.SystemApplicationStarter - Started SystemApplicationStarter in 3.017 seconds (JVM running for 1825.448)
+2021-12-15 18:47:27.541 INFO  14228 --- [restartedMain] o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-12-15 18:47:36.256 INFO  14228 --- [http-nio-80-exec-3] o.a.c.c.ContainerBase.[Tomcat-2].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-15 18:47:36.256 INFO  14228 --- [http-nio-80-exec-3] org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-12-15 18:47:36.261 INFO  14228 --- [http-nio-80-exec-3] org.springframework.web.servlet.DispatcherServlet - Completed initialization in 5 ms
+2021-12-15 18:51:38.801 INFO  14228 --- [Thread-47] o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-12-15 18:51:38.804 INFO  14228 --- [Thread-47] com.alibaba.druid.pool.DruidDataSource - {dataSource-7} closing ...
+2021-12-15 18:51:38.805 INFO  14228 --- [Thread-47] com.alibaba.druid.pool.DruidDataSource - {dataSource-7} closed
+2021-12-15 18:51:39.036 INFO  14228 --- [restartedMain] org.example.SystemApplicationStarter - Starting SystemApplicationStarter on wobenwangzhe with PID 14228 (F:\ideaspace\addrook-backend\target\classes started by 王晗 in F:\ideaspace\addrook-backend)
+2021-12-15 18:51:39.037 INFO  14228 --- [restartedMain] org.example.SystemApplicationStarter - The following profiles are active: mybatisplus
+2021-12-15 18:51:39.382 INFO  14228 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-12-15 18:51:39.382 INFO  14228 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-12-15 18:51:39.387 INFO  14228 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 4ms. Found 0 Redis repository interfaces.
+2021-12-15 18:51:39.416 WARN  14228 --- [restartedMain] org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'userDao' and 'org.example.addrook.dao.UserDao' mapperInterface. Bean already defined with the same name!
+2021-12-15 18:51:39.416 WARN  14228 --- [restartedMain] org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[org.example.addrook.dao]' package. Please check your configuration.
+2021-12-15 18:51:42.000 INFO  14228 --- [restartedMain] o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 80 (http)
+2021-12-15 18:51:42.001 INFO  14228 --- [restartedMain] org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+2021-12-15 18:51:42.001 INFO  14228 --- [restartedMain] org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-12-15 18:51:42.001 INFO  14228 --- [restartedMain] org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.46]
+2021-12-15 18:51:42.024 INFO  14228 --- [restartedMain] o.a.c.c.ContainerBase.[Tomcat-2].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-12-15 18:51:42.024 INFO  14228 --- [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2985 ms
+2021-12-15 18:51:42.055 INFO  14228 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-12-15 18:51:42.092 INFO  14228 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource - {dataSource-8} inited
+2021-12-15 18:51:42.360 INFO  14228 --- [restartedMain] o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-12-15 18:51:42.364 INFO  14228 --- [restartedMain] o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-12-15 18:51:42.422 INFO  14228 --- [restartedMain] org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+2021-12-15 18:51:42.426 INFO  14228 --- [restartedMain] o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 80 (http) with context path ''
+2021-12-15 18:51:42.462 INFO  14228 --- [restartedMain] org.example.SystemApplicationStarter - Started SystemApplicationStarter in 3.467 seconds (JVM running for 2080.37)
+2021-12-15 18:51:42.464 INFO  14228 --- [restartedMain] o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-12-15 18:51:54.153 INFO  14228 --- [http-nio-80-exec-1] o.a.c.c.ContainerBase.[Tomcat-2].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-15 18:51:54.154 INFO  14228 --- [http-nio-80-exec-1] org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-12-15 18:51:54.160 INFO  14228 --- [http-nio-80-exec-1] org.springframework.web.servlet.DispatcherServlet - Completed initialization in 6 ms
+2021-12-15 18:57:22.237 INFO  14228 --- [Thread-55] o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-12-15 18:57:22.239 INFO  14228 --- [Thread-55] com.alibaba.druid.pool.DruidDataSource - {dataSource-8} closing ...
+2021-12-15 18:57:22.240 INFO  14228 --- [Thread-55] com.alibaba.druid.pool.DruidDataSource - {dataSource-8} closed
+2021-12-15 18:57:22.476 INFO  14228 --- [restartedMain] org.example.SystemApplicationStarter - Starting SystemApplicationStarter on wobenwangzhe with PID 14228 (F:\ideaspace\addrook-backend\target\classes started by 王晗 in F:\ideaspace\addrook-backend)
+2021-12-15 18:57:22.476 INFO  14228 --- [restartedMain] org.example.SystemApplicationStarter - The following profiles are active: mybatisplus
+2021-12-15 18:57:25.781 INFO  14228 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-12-15 18:57:25.781 INFO  14228 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-12-15 18:57:25.788 INFO  14228 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 6ms. Found 0 Redis repository interfaces.
+2021-12-15 18:57:25.818 WARN  14228 --- [restartedMain] org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'userDao' and 'org.example.addrook.dao.UserDao' mapperInterface. Bean already defined with the same name!
+2021-12-15 18:57:25.818 WARN  14228 --- [restartedMain] org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[org.example.addrook.dao]' package. Please check your configuration.
+2021-12-15 18:57:25.907 INFO  14228 --- [restartedMain] o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 80 (http)
+2021-12-15 18:57:25.908 INFO  14228 --- [restartedMain] org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+2021-12-15 18:57:25.908 INFO  14228 --- [restartedMain] org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-12-15 18:57:25.908 INFO  14228 --- [restartedMain] org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.46]
+2021-12-15 18:57:25.931 INFO  14228 --- [restartedMain] o.a.c.c.ContainerBase.[Tomcat-2].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-12-15 18:57:25.931 INFO  14228 --- [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3451 ms
+2021-12-15 18:57:25.960 INFO  14228 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-12-15 18:57:25.997 INFO  14228 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource - {dataSource-9} inited
+2021-12-15 18:57:26.287 INFO  14228 --- [restartedMain] o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-12-15 18:57:26.293 INFO  14228 --- [restartedMain] o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-12-15 18:57:26.359 INFO  14228 --- [restartedMain] org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+2021-12-15 18:57:26.363 INFO  14228 --- [restartedMain] o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 80 (http) with context path ''
+2021-12-15 18:57:26.397 INFO  14228 --- [restartedMain] org.example.SystemApplicationStarter - Started SystemApplicationStarter in 3.95 seconds (JVM running for 2424.305)
+2021-12-15 18:57:26.398 INFO  14228 --- [restartedMain] o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-12-15 18:57:33.116 INFO  14228 --- [http-nio-80-exec-1] o.a.c.c.ContainerBase.[Tomcat-2].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-15 18:57:33.116 INFO  14228 --- [http-nio-80-exec-1] org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-12-15 18:57:33.121 INFO  14228 --- [http-nio-80-exec-1] org.springframework.web.servlet.DispatcherServlet - Completed initialization in 5 ms
+2021-12-15 19:11:52.653 INFO  14228 --- [Thread-60] o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-12-15 19:11:52.656 INFO  14228 --- [Thread-60] com.alibaba.druid.pool.DruidDataSource - {dataSource-9} closing ...
+2021-12-15 19:11:52.657 INFO  14228 --- [Thread-60] com.alibaba.druid.pool.DruidDataSource - {dataSource-9} closed
+2021-12-15 19:11:52.908 INFO  14228 --- [restartedMain] org.example.SystemApplicationStarter - Starting SystemApplicationStarter on wobenwangzhe with PID 14228 (F:\ideaspace\addrook-backend\target\classes started by 王晗 in F:\ideaspace\addrook-backend)
+2021-12-15 19:11:52.908 INFO  14228 --- [restartedMain] org.example.SystemApplicationStarter - The following profiles are active: mybatisplus
+2021-12-15 19:11:53.178 INFO  14228 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-12-15 19:11:53.178 INFO  14228 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-12-15 19:11:53.236 INFO  14228 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 57ms. Found 0 Redis repository interfaces.
+2021-12-15 19:11:53.376 INFO  14228 --- [restartedMain] o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 80 (http)
+2021-12-15 19:11:53.377 INFO  14228 --- [restartedMain] org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+2021-12-15 19:11:53.377 INFO  14228 --- [restartedMain] org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-12-15 19:11:53.377 INFO  14228 --- [restartedMain] org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.46]
+2021-12-15 19:11:53.415 INFO  14228 --- [restartedMain] o.a.c.c.ContainerBase.[Tomcat-2].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-12-15 19:11:53.416 INFO  14228 --- [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 505 ms
+2021-12-15 19:11:53.450 WARN  14228 --- [restartedMain] o.s.b.w.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'userController': Injection of resource dependencies failed; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'userService' available
+2021-12-15 19:11:53.450 INFO  14228 --- [restartedMain] org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2021-12-15 19:11:53.459 INFO  14228 --- [restartedMain] o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-12-15 19:11:53.462 ERROR 14228 --- [restartedMain] o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+A component required a bean named 'userService' that could not be found.
+
+
+Action:
+
+Consider defining a bean named 'userService' in your configuration.
+
+2021-12-15 19:12:09.655 INFO  14228 --- [restartedMain] org.example.SystemApplicationStarter - Starting SystemApplicationStarter on wobenwangzhe with PID 14228 (F:\ideaspace\addrook-backend\target\classes started by 王晗 in F:\ideaspace\addrook-backend)
+2021-12-15 19:12:09.656 INFO  14228 --- [restartedMain] org.example.SystemApplicationStarter - The following profiles are active: mybatisplus
+2021-12-15 19:12:09.983 INFO  14228 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-12-15 19:12:09.983 INFO  14228 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-12-15 19:12:09.989 INFO  14228 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 4ms. Found 0 Redis repository interfaces.
+2021-12-15 19:12:10.016 WARN  14228 --- [restartedMain] org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'userDao' and 'org.example.addrook.dao.UserDao' mapperInterface. Bean already defined with the same name!
+2021-12-15 19:12:10.017 WARN  14228 --- [restartedMain] org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[org.example.addrook.dao]' package. Please check your configuration.
+2021-12-15 19:12:10.072 INFO  14228 --- [restartedMain] o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 80 (http)
+2021-12-15 19:12:10.073 INFO  14228 --- [restartedMain] org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+2021-12-15 19:12:10.073 INFO  14228 --- [restartedMain] org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-12-15 19:12:10.074 INFO  14228 --- [restartedMain] org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.46]
+2021-12-15 19:12:10.101 INFO  14228 --- [restartedMain] o.a.c.c.ContainerBase.[Tomcat-3].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-12-15 19:12:10.101 INFO  14228 --- [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 441 ms
+2021-12-15 19:12:10.145 INFO  14228 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-12-15 19:12:10.183 INFO  14228 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource - {dataSource-10} inited
+2021-12-15 19:12:11.919 INFO  14228 --- [restartedMain] o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-12-15 19:12:11.925 INFO  14228 --- [restartedMain] o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-12-15 19:12:11.986 INFO  14228 --- [restartedMain] org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+2021-12-15 19:12:11.992 INFO  14228 --- [restartedMain] o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 80 (http) with context path ''
+2021-12-15 19:12:12.028 INFO  14228 --- [restartedMain] org.example.SystemApplicationStarter - Started SystemApplicationStarter in 2.417 seconds (JVM running for 3309.937)
+2021-12-15 19:12:12.030 INFO  14228 --- [restartedMain] o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-12-15 19:12:15.116 INFO  14228 --- [SpringContextShutdownHook] o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-12-15 19:12:15.119 INFO  14228 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource - {dataSource-10} closing ...
+2021-12-15 19:12:15.120 INFO  14228 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource - {dataSource-10} closed
+2021-12-15 19:12:18.352 INFO  9120 --- [background-preinit] org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.1.7.Final
+2021-12-15 19:12:18.382 INFO  9120 --- [restartedMain] org.example.SystemApplicationStarter - Starting SystemApplicationStarter on wobenwangzhe with PID 9120 (F:\ideaspace\addrook-backend\target\classes started by 王晗 in F:\ideaspace\addrook-backend)
+2021-12-15 19:12:18.383 INFO  9120 --- [restartedMain] org.example.SystemApplicationStarter - The following profiles are active: mybatisplus
+2021-12-15 19:12:18.427 INFO  9120 --- [restartedMain] o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-12-15 19:12:18.427 INFO  9120 --- [restartedMain] o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-12-15 19:12:19.173 INFO  9120 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-12-15 19:12:19.174 INFO  9120 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-12-15 19:12:19.199 INFO  9120 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 14ms. Found 0 Redis repository interfaces.
+2021-12-15 19:12:19.332 WARN  9120 --- [restartedMain] org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'userDao' and 'org.example.addrook.dao.UserDao' mapperInterface. Bean already defined with the same name!
+2021-12-15 19:12:19.333 WARN  9120 --- [restartedMain] org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[org.example.addrook.dao]' package. Please check your configuration.
+2021-12-15 19:12:19.656 INFO  9120 --- [restartedMain] o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 80 (http)
+2021-12-15 19:12:19.663 INFO  9120 --- [restartedMain] org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+2021-12-15 19:12:19.663 INFO  9120 --- [restartedMain] org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-12-15 19:12:19.664 INFO  9120 --- [restartedMain] org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.46]
+2021-12-15 19:12:19.785 INFO  9120 --- [restartedMain] o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-12-15 19:12:19.785 INFO  9120 --- [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1358 ms
+2021-12-15 19:12:19.874 INFO  9120 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-12-15 19:12:20.058 INFO  9120 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2021-12-15 19:12:21.001 INFO  9120 --- [restartedMain] o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-12-15 19:12:21.025 INFO  9120 --- [restartedMain] o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-12-15 19:12:21.202 INFO  9120 --- [restartedMain] org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+2021-12-15 19:12:21.221 INFO  9120 --- [restartedMain] o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 80 (http) with context path ''
+2021-12-15 19:12:21.409 INFO  9120 --- [restartedMain] org.example.SystemApplicationStarter - Started SystemApplicationStarter in 3.414 seconds (JVM running for 4.292)
+2021-12-15 19:12:30.802 INFO  9120 --- [http-nio-80-exec-2] o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-15 19:12:30.802 INFO  9120 --- [http-nio-80-exec-2] org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-12-15 19:12:30.806 INFO  9120 --- [http-nio-80-exec-2] org.springframework.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+2021-12-15 19:26:35.829 INFO  9120 --- [Thread-10] o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-12-15 19:26:35.847 INFO  9120 --- [Thread-10] com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closing ...
+2021-12-15 19:26:35.848 INFO  9120 --- [Thread-10] com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2021-12-15 19:26:36.080 INFO  9120 --- [restartedMain] org.example.SystemApplicationStarter - Starting SystemApplicationStarter on wobenwangzhe with PID 9120 (F:\ideaspace\addrook-backend\target\classes started by 王晗 in F:\ideaspace\addrook-backend)
+2021-12-15 19:26:36.080 INFO  9120 --- [restartedMain] org.example.SystemApplicationStarter - The following profiles are active: mybatisplus
+2021-12-15 19:26:36.582 INFO  9120 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-12-15 19:26:36.582 INFO  9120 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-12-15 19:26:36.598 INFO  9120 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 15ms. Found 0 Redis repository interfaces.
+2021-12-15 19:26:36.770 INFO  9120 --- [restartedMain] o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 80 (http)
+2021-12-15 19:26:36.770 INFO  9120 --- [restartedMain] org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+2021-12-15 19:26:36.770 INFO  9120 --- [restartedMain] org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-12-15 19:26:36.770 INFO  9120 --- [restartedMain] org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.46]
+2021-12-15 19:26:36.794 INFO  9120 --- [restartedMain] o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-12-15 19:26:36.795 INFO  9120 --- [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 712 ms
+2021-12-15 19:26:36.923 INFO  9120 --- [restartedMain] o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-12-15 19:26:36.930 INFO  9120 --- [restartedMain] o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-12-15 19:26:36.957 INFO  9120 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-12-15 19:26:37.009 INFO  9120 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource - {dataSource-2} inited
+2021-12-15 19:26:37.328 INFO  9120 --- [restartedMain] org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+2021-12-15 19:26:37.334 INFO  9120 --- [restartedMain] o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 80 (http) with context path ''
+2021-12-15 19:26:37.390 INFO  9120 --- [restartedMain] org.example.SystemApplicationStarter - Started SystemApplicationStarter in 1.36 seconds (JVM running for 860.272)
+2021-12-15 19:26:37.392 INFO  9120 --- [restartedMain] o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-12-15 19:26:43.520 INFO  9120 --- [http-nio-80-exec-2] o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-15 19:26:43.521 INFO  9120 --- [http-nio-80-exec-2] org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-12-15 19:26:43.525 INFO  9120 --- [http-nio-80-exec-2] org.springframework.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+2021-12-15 19:27:31.992 INFO  9120 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource - {dataSource-2} closing ...
+2021-12-15 19:27:31.994 INFO  9120 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource - {dataSource-2} closed
+2021-12-15 19:27:31.995 INFO  9120 --- [SpringContextShutdownHook] o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-12-15 19:27:35.477 INFO  11980 --- [background-preinit] org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.1.7.Final
+2021-12-15 19:27:35.506 INFO  11980 --- [restartedMain] org.example.SystemApplicationStarter - Starting SystemApplicationStarter on wobenwangzhe with PID 11980 (F:\ideaspace\addrook-backend\target\classes started by 王晗 in F:\ideaspace\addrook-backend)
+2021-12-15 19:27:35.507 INFO  11980 --- [restartedMain] org.example.SystemApplicationStarter - The following profiles are active: mybatisplus
+2021-12-15 19:27:35.558 INFO  11980 --- [restartedMain] o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-12-15 19:27:35.558 INFO  11980 --- [restartedMain] o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-12-15 19:27:36.269 INFO  11980 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-12-15 19:27:36.270 INFO  11980 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-12-15 19:27:36.293 INFO  11980 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 13ms. Found 0 Redis repository interfaces.
+2021-12-15 19:27:36.410 WARN  11980 --- [restartedMain] org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'userDao' and 'org.example.addrook.dao.UserDao' mapperInterface. Bean already defined with the same name!
+2021-12-15 19:27:36.411 WARN  11980 --- [restartedMain] org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[org.example.addrook.dao]' package. Please check your configuration.
+2021-12-15 19:27:36.733 INFO  11980 --- [restartedMain] o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 80 (http)
+2021-12-15 19:27:36.740 INFO  11980 --- [restartedMain] org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+2021-12-15 19:27:36.740 INFO  11980 --- [restartedMain] org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-12-15 19:27:36.740 INFO  11980 --- [restartedMain] org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.46]
+2021-12-15 19:27:36.859 INFO  11980 --- [restartedMain] o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-12-15 19:27:36.859 INFO  11980 --- [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1301 ms
+2021-12-15 19:27:36.946 INFO  11980 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-12-15 19:27:37.126 INFO  11980 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2021-12-15 19:27:38.070 INFO  11980 --- [restartedMain] o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-12-15 19:27:38.094 INFO  11980 --- [restartedMain] o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-12-15 19:27:38.269 INFO  11980 --- [restartedMain] org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+2021-12-15 19:27:38.288 INFO  11980 --- [restartedMain] o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 80 (http) with context path ''
+2021-12-15 19:27:38.468 INFO  11980 --- [restartedMain] org.example.SystemApplicationStarter - Started SystemApplicationStarter in 3.333 seconds (JVM running for 4.412)
+2021-12-15 19:28:28.747 INFO  11980 --- [Thread-10] o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-12-15 19:28:28.767 INFO  11980 --- [Thread-10] com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closing ...
+2021-12-15 19:28:28.773 INFO  11980 --- [Thread-10] com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2021-12-15 19:28:28.958 INFO  11980 --- [restartedMain] org.example.SystemApplicationStarter - Starting SystemApplicationStarter on wobenwangzhe with PID 11980 (F:\ideaspace\addrook-backend\target\classes started by 王晗 in F:\ideaspace\addrook-backend)
+2021-12-15 19:28:28.958 INFO  11980 --- [restartedMain] org.example.SystemApplicationStarter - The following profiles are active: mybatisplus
+2021-12-15 19:28:29.606 INFO  11980 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-12-15 19:28:29.606 INFO  11980 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-12-15 19:28:29.613 INFO  11980 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 7ms. Found 0 Redis repository interfaces.
+2021-12-15 19:28:29.657 WARN  11980 --- [restartedMain] org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'userDao' and 'org.example.addrook.dao.UserDao' mapperInterface. Bean already defined with the same name!
+2021-12-15 19:28:29.657 WARN  11980 --- [restartedMain] org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[org.example.addrook.dao]' package. Please check your configuration.
+2021-12-15 19:28:29.749 INFO  11980 --- [restartedMain] o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 80 (http)
+2021-12-15 19:28:29.749 INFO  11980 --- [restartedMain] org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+2021-12-15 19:28:29.749 INFO  11980 --- [restartedMain] org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-12-15 19:28:29.749 INFO  11980 --- [restartedMain] org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.46]
+2021-12-15 19:28:29.779 INFO  11980 --- [restartedMain] o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-12-15 19:28:29.780 INFO  11980 --- [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 820 ms
+2021-12-15 19:28:29.810 INFO  11980 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-12-15 19:28:29.852 INFO  11980 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource - {dataSource-2} inited
+2021-12-15 19:28:30.165 INFO  11980 --- [restartedMain] o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-12-15 19:28:30.172 INFO  11980 --- [restartedMain] o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-12-15 19:28:30.250 INFO  11980 --- [restartedMain] org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+2021-12-15 19:28:30.255 INFO  11980 --- [restartedMain] o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 80 (http) with context path ''
+2021-12-15 19:28:30.306 INFO  11980 --- [restartedMain] org.example.SystemApplicationStarter - Started SystemApplicationStarter in 1.383 seconds (JVM running for 56.25)
+2021-12-15 19:28:30.308 INFO  11980 --- [restartedMain] o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-12-15 19:28:43.804 INFO  11980 --- [http-nio-80-exec-1] o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-15 19:28:43.805 INFO  11980 --- [http-nio-80-exec-1] org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-12-15 19:28:43.810 INFO  11980 --- [http-nio-80-exec-1] org.springframework.web.servlet.DispatcherServlet - Completed initialization in 5 ms
+2021-12-15 19:30:23.931 INFO  11980 --- [Thread-19] o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-12-15 19:30:23.935 INFO  11980 --- [Thread-19] com.alibaba.druid.pool.DruidDataSource - {dataSource-2} closing ...
+2021-12-15 19:30:23.936 INFO  11980 --- [Thread-19] com.alibaba.druid.pool.DruidDataSource - {dataSource-2} closed
+2021-12-15 19:30:24.141 INFO  11980 --- [restartedMain] org.example.SystemApplicationStarter - Starting SystemApplicationStarter on wobenwangzhe with PID 11980 (F:\ideaspace\addrook-backend\target\classes started by 王晗 in F:\ideaspace\addrook-backend)
+2021-12-15 19:30:24.141 INFO  11980 --- [restartedMain] org.example.SystemApplicationStarter - The following profiles are active: mybatisplus
+2021-12-15 19:30:25.217 INFO  11980 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-12-15 19:30:25.217 INFO  11980 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-12-15 19:30:25.229 INFO  11980 --- [restartedMain] o.s.d.r.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 11ms. Found 0 Redis repository interfaces.
+2021-12-15 19:30:25.269 WARN  11980 --- [restartedMain] org.mybatis.spring.mapper.ClassPathMapperScanner - Skipping MapperFactoryBean with name 'userDao' and 'org.example.addrook.dao.UserDao' mapperInterface. Bean already defined with the same name!
+2021-12-15 19:30:25.269 WARN  11980 --- [restartedMain] org.mybatis.spring.mapper.ClassPathMapperScanner - No MyBatis mapper was found in '[org.example.addrook.dao]' package. Please check your configuration.
+2021-12-15 19:30:25.375 INFO  11980 --- [restartedMain] o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 80 (http)
+2021-12-15 19:30:25.375 INFO  11980 --- [restartedMain] org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-80"]
+2021-12-15 19:30:25.375 INFO  11980 --- [restartedMain] org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-12-15 19:30:25.375 INFO  11980 --- [restartedMain] org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.46]
+2021-12-15 19:30:25.400 INFO  11980 --- [restartedMain] o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-12-15 19:30:25.400 INFO  11980 --- [restartedMain] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1256 ms
+2021-12-15 19:30:25.430 INFO  11980 --- [restartedMain] c.a.d.s.b.a.DruidDataSourceAutoConfigure - Init DruidDataSource
+2021-12-15 19:30:25.475 INFO  11980 --- [restartedMain] com.alibaba.druid.pool.DruidDataSource - {dataSource-3} inited
+2021-12-15 19:30:25.768 INFO  11980 --- [restartedMain] o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2021-12-15 19:30:25.774 INFO  11980 --- [restartedMain] o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-12-15 19:30:25.833 INFO  11980 --- [restartedMain] org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-80"]
+2021-12-15 19:30:25.837 INFO  11980 --- [restartedMain] o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 80 (http) with context path ''
+2021-12-15 19:30:25.876 INFO  11980 --- [restartedMain] org.example.SystemApplicationStarter - Started SystemApplicationStarter in 1.766 seconds (JVM running for 171.821)
+2021-12-15 19:30:25.878 INFO  11980 --- [restartedMain] o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2021-12-15 19:30:33.103 INFO  11980 --- [http-nio-80-exec-1] o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-15 19:30:33.103 INFO  11980 --- [http-nio-80-exec-1] org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-12-15 19:30:33.107 INFO  11980 --- [http-nio-80-exec-1] org.springframework.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+2021-12-15 19:32:11.167 INFO  11980 --- [SpringContextShutdownHook] o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2021-12-15 19:32:11.170 INFO  11980 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource - {dataSource-3} closing ...
+2021-12-15 19:32:11.170 INFO  11980 --- [SpringContextShutdownHook] com.alibaba.druid.pool.DruidDataSource - {dataSource-3} closed

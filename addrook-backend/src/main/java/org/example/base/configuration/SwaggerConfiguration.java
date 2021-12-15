@@ -1,5 +1,6 @@
 package org.example.base.configuration;
 
+import io.swagger.annotations.ApiOperation;
 import org.example.base.util.SwaggerPropertiesUtil;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -25,7 +26,9 @@ public class SwaggerConfiguration {
 				.apiInfo(apiInfo())
 				//设置swagger扫描接口的基础包位置
 				.select()
-				.apis(RequestHandlerSelectors.basePackage(SwaggerPropertiesUtil.getBasePackage()))
+				//扫描所有注解是@ApiOperation的注解
+				.apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))
+				//.apis(RequestHandlerSelectors.basePackage(SwaggerPropertiesUtil.getBasePackage()))
 				.paths(PathSelectors.any())
 				.build();
 		return docket;

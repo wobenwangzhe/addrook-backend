@@ -1,12 +1,13 @@
 package org.example.addrook.controller;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.Parameter;
 import org.example.addrook.pojo.vo.UserVO;
 import org.example.addrook.service.UserService;
 import org.example.addrook.util.PropertiesUtil;
 import org.example.base.controller.BaseController;
+import org.example.base.pojo.vo.PageVO;
 import org.example.base.pojo.vo.ResponseVO;
 import org.example.base.util.ValidateUtil;
 import org.springframework.web.bind.annotation.*;
@@ -23,6 +24,7 @@ import javax.annotation.Resource;
 @RequestMapping("/user")
 @RestController("userController")
 public class UserController  extends BaseController {
+
 	@Resource(name = "userService")
 	private UserService userService;
 
@@ -32,9 +34,9 @@ public class UserController  extends BaseController {
 	 * @return ResponseVO
 	 * @throws Exception 所有异常
 	 */
-	@ApiOperation(value = "验证该手机号码能否使用",tags = "验证该手机号码能否使用",httpMethod = "POST")
+	@ApiOperation(value = "验证该手机号码能否使用",tags = "验证该手机号码能否使用")
 	@PostMapping("/check/cellphone")
-	public ResponseVO checkCellphone(@RequestBody UserVO query) throws Exception{
+	public ResponseVO checkCellphone(@RequestBody @Parameter(description="只需传入 \n\tString cellphone\n\tLong id(可为null)\n即可")UserVO query) throws Exception{
 		//拿出前端传过来的cellphone和id
 		Long id = query.getId();
 		String cellphone = query.getCellphone();
@@ -117,9 +119,9 @@ public class UserController  extends BaseController {
 			pageNum = PropertiesUtil.getPageNum();
 		if(pageSize==null || pageSize<1)
 			pageSize = PropertiesUtil.getPageSize();
-		IPage<UserVO> iPage = userService.findPageByQuery(pageNum,pageSize,queryVO);
+		PageVO<UserVO> pageVO = userService.findPageByQuery(pageNum,pageSize,queryVO);
 		//返回系统响应
-		ResponseVO responseVO=ResponseVO.getSuccess(iPage);
+		ResponseVO responseVO=ResponseVO.getSuccess(pageVO);
 		return responseVO;
 	}
 

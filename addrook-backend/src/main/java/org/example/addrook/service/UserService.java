@@ -1,7 +1,7 @@
 package org.example.addrook.service;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
 import org.example.addrook.pojo.vo.UserVO;
+import org.example.base.pojo.vo.PageVO;
 
 /**
  * <b>个人通讯录系统物业层接口</b>
@@ -32,5 +32,5 @@ public interface UserService {
 	 * @param queryVO 条件
 	 * @return IPage<UserVO>
 	 */
-	IPage<UserVO> findPageByQuery(Long pageNum, Long pageSize, UserVO queryVO)throws Exception;
+	PageVO<UserVO> findPageByQuery(Long pageNum, Long pageSize, UserVO queryVO)throws Exception;
 }

@@ -3,8 +3,10 @@ package org.example.addrook.pojo.vo;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import org.example.addrook.pojo.entity.User;
+import org.example.base.pojo.vo.BaseVO;
 import org.springframework.beans.BeanUtils;
 
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 /**
@@ -12,14 +14,15 @@ import java.io.Serializable;
  * @author 王晗
  * @version 5.0.0
  */
-@ApiModel(value = "用户信息视图",description = "用户信息视图")
-public final class UserVO implements Serializable {
+@ApiModel(value = "用户信息视图",description = "用户信息视图UserVO")
+public final class UserVO extends BaseVO implements Serializable {
 	private static final long serialVersionUID = 3747045626052934225L;
 	@ApiModelProperty(value = "主键")
 	private Long id;            //主键
 	@ApiModelProperty(value = "姓名")
 	private String name;        //姓名
 	@ApiModelProperty(value = "手机号码")
+	@NotNull
 	private String cellphone;   //手机号码
 	@ApiModelProperty(value = "登录密码")
 	private String password;    //登录密码

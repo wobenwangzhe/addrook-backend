@@ -11,7 +11,7 @@ import java.io.Serializable;
  * @author 王晗
  * @version 5.0.0
  */
-@ApiModel(value = "系统响应视图信息" ,description = "系统响应视图信息")
+@ApiModel(value = "系统响应视图信息" ,description = "系统响应视图信息ResponseVO")
 public class ResponseVO implements Serializable {
 	private static final long serialVersionUID = -8985290324044388509L;
 	@ApiModelProperty(value = "响应编码")

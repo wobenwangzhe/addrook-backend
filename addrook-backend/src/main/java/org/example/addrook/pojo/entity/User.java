@@ -2,10 +2,10 @@ package org.example.addrook.pojo.entity;
 
 import com.baomidou.mybatisplus.annotation.*;
 import org.example.addrook.pojo.vo.UserVO;
+import org.example.base.pojo.entity.BaseEntity;
 import org.springframework.beans.BeanUtils;
 
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * <b>用户信息实体类</b>
@@ -13,14 +13,14 @@ import java.util.Date;
  * @version 5.0.0
  */
 @TableName("sys_user")
-public final class User implements Serializable {
+public final class User extends BaseEntity implements Serializable {
 	private static final long serialVersionUID = 1858933323802711801L;
 	@TableId(value = "id",type = IdType.AUTO)
 	@OrderBy(sort = Short.MIN_VALUE)
 	private Long id;            //主键
 	@TableField(value = "name")
 	private String name;        //姓名
-	@TableField(value = "cellphone",updateStrategy=FieldStrategy.NOT_EMPTY )
+	@TableField(value = "cellphone",insertStrategy=FieldStrategy.NOT_EMPTY, updateStrategy=FieldStrategy.NOT_EMPTY )
 	private String cellphone;   //手机号码
 	@TableField(value = "password" )
 	private String password;    //登录密码
@@ -30,10 +30,6 @@ public final class User implements Serializable {
 	private String address;     //联系地址
 	@TableField(value = "avatar" )
 	private String avatar;      //头像
-	@TableField(value = "createTime" ,fill=FieldFill.INSERT)
-	private Date createTime;    //创建时间
-	@TableField(value = "updateTime",fill = FieldFill.INSERT_UPDATE)
-	private Date updateTime;    //修改时间
 
 	/**
 	 * <b>用户信息实体类转换为用户信息视图类</b>
@@ -55,8 +51,6 @@ public final class User implements Serializable {
 				", email='" + email + '\'' +
 				", address='" + address + '\'' +
 				", avatar='" + avatar + '\'' +
-				", createTime=" + createTime +
-				", updateTime=" + updateTime +
 				'}';
 	}
 
@@ -108,21 +102,6 @@ public final class User implements Serializable {
 		this.avatar = avatar;
 	}
 
-	public Date getCreateTime() {
-		return createTime;
-	}
-
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
-	}
-
-	public Date getUpdateTime() {
-		return updateTime;
-	}
-
-	public void setUpdateTime(Date updateTime) {
-		this.updateTime = updateTime;
-	}
 
 	public Long getId() {
 		return id;

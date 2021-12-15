@@ -1,16 +1,20 @@
 package org.example.addrook.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.core.metadata.OrderItem;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.example.addrook.dao.UserDao;
 import org.example.addrook.pojo.entity.User;
 import org.example.addrook.pojo.vo.UserVO;
 import org.example.addrook.service.UserService;
-import org.example.addrook.util.PageMapperUtil;
+import org.example.base.pojo.vo.PageVO;
+import org.example.base.util.PageMapperUtil;
 import org.example.base.util.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * <b>个人通讯录系统物业层接口实现类</b>
@@ -83,9 +87,14 @@ public class UserServiceImpl implements UserService {
 	 * @return IPage<UserVO>
 	 */
 	@Override
-	public IPage<UserVO> findPageByQuery(Long pageNum, Long pageSize, UserVO queryVO) throws Exception {
+	public PageVO<UserVO> findPageByQuery(Long pageNum, Long pageSize, UserVO queryVO) throws Exception {
 		//分页条件
 		Page<User> page = new Page<>(pageNum, pageSize);
+		//添加排序条件,根据id正序排列
+		List<OrderItem> orderlist=new ArrayList<>();
+		orderlist.add(OrderItem.asc("id"));
+		page.addOrder(orderlist);
+
 		//查询条件
 		QueryWrapper<User> wrapper =new QueryWrapper<>();
 		if (queryVO != null) {
@@ -98,13 +107,11 @@ public class UserServiceImpl implements UserService {
 			if(queryVO.getAddress()!=null)
 				wrapper.like("address", queryVO.getAddress());
 		}
-			//排序
-			wrapper.orderByAsc("id");
 
 		//查询
 		page =userDao.selectPage(page, wrapper);
 		//转化为视图对象
-		IPage<UserVO> pageVO =new Page<>();
+		PageVO<UserVO> pageVO =new PageVO<>();
 		pageVO = PageMapperUtil.pageMapperTAToRE(page,UserVO.class);
 		return pageVO;
 	}

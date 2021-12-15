@@ -23,11 +23,19 @@ spring:
       initial-size: 5
       min-evictable-idle-time-millis: 30000
       max-evictable-idle-time-millis: 60000
-      #### 配置 Druid 监控信息
-      stat-view-servlet:
-        #### 开启监控平台
+      #### 配置 Druid 监控
+      web-stat-filter:
+        #### 不需要监控的请求
+        exclusions: "*.js,*.gif,*.jpg,/*.css,*.ico,/druid/*"
+        #### 开启Druid监控
         enabled: true
-        #### 登录监控系统请求地址
+        #### 监控所有url请求
+        url-pattern: /*
+      #### 配置Druid监控的网页
+      stat-view-servlet:
+        #### 开启监控系统网页
+        enabled: true
+        #### 登录监控系统网页请求地址
         url-pattern: /druid/*
         #### 配置监控系统访问白名单 ip 地址
         allow: 127.0.0.1
@@ -36,6 +44,3 @@ spring:
         login-password: 123456
         #### 能否重置数据
         reset-enable: false
-      ####配置过滤规则
-      web-stat-filter:
-        exclusions: "*.js,*.gif,*.jpg,/*.css,*.ico,/duirid/*"
