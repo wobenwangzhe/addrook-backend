@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @version 1.0.0
  */
 @MapperScan("org.example.addrook.dao")
-@SpringBootApplication(scanBasePackages = "org.example")
+@SpringBootApplication
 public class SystemApplicationStarter {
 	public static void main(String[] args) {
 		SpringApplication.run(SystemApplicationStarter.class,

@@ -46,10 +46,9 @@ public class UserController  extends BaseController {
 			return ResponseVO.getError("请输入正确的手机号码");
 		//查询手机号码
 		UserVO userVO = userService.findUserVObyCellphone(cellphone);
-		if( userVO.getId()!=null &&!userVO.getId().equals(id)){
+		if( userVO!=null && userVO.getId()!=null &&!userVO.getId().equals(id))
 			//不可用
 			return ResponseVO.getError("该手机号码已被使用");
-		}
 		//可用
 		return ResponseVO.getSuccess("该手机号码可用");
 	}
@@ -69,11 +68,12 @@ public class UserController  extends BaseController {
 			return ResponseVO.getError("请输入正确的电子邮箱");
 		//查询电子邮箱
 		UserVO userVO = userService.findUserVObyEmail(email);
-		if(userVO==null || userVO.getId().equals(id))
-			//可用
-			return ResponseVO.getSuccess("该电子邮件可用");
-		//不可用
-		return ResponseVO.getError("该电子邮件已被使用");
+		if(userVO!=null && userVO.getId()!=null && !userVO.getId().equals(id))
+			//不可用
+			return ResponseVO.getError("该电子邮件已被使用");
+		//可用
+		return ResponseVO.getSuccess("该电子邮件可用");
+
 	}
 
 	/**

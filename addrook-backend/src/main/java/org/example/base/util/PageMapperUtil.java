@@ -20,8 +20,8 @@ public class PageMapperUtil  {
 	 * <b>将实体分页对象转换为视图分页对象</b>
 	 * @param reiPage 要装换类型的分页对象
 	 * @param taClass 目标类型
-	 * @param <RE> 来源类型 继承于BaseEntity
-	 * @param <TA> 目标类型 继承与BaseVO
+	 * @param <RE> 来源类型泛型 继承于BaseEntity
+	 * @param <TA> 目标类型泛型 继承与BaseVO
 	 * @return
 	 */
 	public static <RE extends BaseEntity,TA extends BaseVO> PageVO<TA> pageMapperTAToRE (IPage<RE> reiPage, Class<TA> taClass) throws Exception{
@@ -35,11 +35,8 @@ public class PageMapperUtil  {
 				BeanUtils.copyProperties(re, ta);
 				newList.add(ta);
 		}
-		//加入分页列表
+		//将分页列表加入分页对象
 		taiPage.setRecords(newList);
-		//设置pageVO对象的是否有上一个下一页信息
-		taiPage.setHasPrevious(taiPage.getCurrent()>1);
-		taiPage.setHasNext(taiPage.getCurrent()< taiPage.getPages());
 		return taiPage;
 	}
 }

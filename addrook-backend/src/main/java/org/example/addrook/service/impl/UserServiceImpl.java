@@ -13,9 +13,6 @@ import org.example.base.util.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * <b>个人通讯录系统物业层接口实现类</b>
  * @author 王晗
@@ -25,6 +22,7 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserDao userDao;
+
 	/**
 	 * <b>根据手机号码查询用户</b>
 	 * @param cellphone 手机号码
@@ -42,12 +40,13 @@ public class UserServiceImpl implements UserService {
 			wrapper.eq("cellphone", cellphone);
 			//查询
 			User user = userDao.selectOne(wrapper);
-			if(user==null)
-				return new UserVO();
-			userVO=User.getParseUserVOFromUser(user);
-			//在redis中没有查到,在mybatis中查到了
-			if(userVO!=null)
+			//mybatis中查询到信息
+			if(user!=null && user.getId()!=null){
+				//将查询到的结果类型转换为视图对象
+				userVO=User.getParseUserVOFromUser(user);
+				//mybatis中查到了,但是redis中没有,在redis中添加这条信息
 				RedisUtil.saveToRedis(cellphone, userVO);
+			}
 		}
 		return userVO;
 	}
@@ -69,12 +68,13 @@ public class UserServiceImpl implements UserService {
 			wrapper.eq("email", email);
 			//查询
 			User user = userDao.selectOne(wrapper);
-			if(user==null)
-				return new UserVO();
-			userVO=User.getParseUserVOFromUser(user);
-			//在redis中没有查到,在mybatis中查到了
-			if(userVO!=null)
+			//mybatis中查询到信息
+			if(user!=null && user.getId()!=null){
+				//将查询到的结果类型转换为视图对象
+				userVO=User.getParseUserVOFromUser(user);
+				//mybatis中查到了,但是redis中没有,在redis中添加这条信息
 				RedisUtil.saveToRedis(email, userVO);
+			}
 		}
 		return userVO;
 	}
@@ -91,9 +91,7 @@ public class UserServiceImpl implements UserService {
 		//分页条件
 		Page<User> page = new Page<>(pageNum, pageSize);
 		//添加排序条件,根据id正序排列
-		List<OrderItem> orderlist=new ArrayList<>();
-		orderlist.add(OrderItem.asc("id"));
-		page.addOrder(orderlist);
+		page.addOrder(OrderItem.asc("id"));
 
 		//查询条件
 		QueryWrapper<User> wrapper =new QueryWrapper<>();
@@ -107,12 +105,12 @@ public class UserServiceImpl implements UserService {
 			if(queryVO.getAddress()!=null)
 				wrapper.like("address", queryVO.getAddress());
 		}
-
 		//查询
 		page =userDao.selectPage(page, wrapper);
 		//转化为视图对象
 		PageVO<UserVO> pageVO =new PageVO<>();
 		pageVO = PageMapperUtil.pageMapperTAToRE(page,UserVO.class);
+		//返回查询结果
 		return pageVO;
 	}
 }

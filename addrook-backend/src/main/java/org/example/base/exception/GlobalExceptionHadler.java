@@ -4,7 +4,8 @@ package org.example.base.exception;
 import org.example.base.pojo.vo.ResponseVO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,7 +18,7 @@ import java.util.Date;
  * @version 1.0.0
  * @since 1.0.0
  */
-@RestController
+@RestControllerAdvice
 public class GlobalExceptionHadler {
 	/*
 		spring内置的日志工具为 logback
@@ -34,6 +35,7 @@ public class GlobalExceptionHadler {
 	 * @param e Exceprion 异常
 	 * @return
 	 */
+	@ExceptionHandler(Exception.class)
 	public ResponseVO globalException(HttpServletRequest request, HttpServletResponse response,Exception e){
 		//将错误信息记录到日志中
 		logger.error(e.getMessage()+":"+new Date());

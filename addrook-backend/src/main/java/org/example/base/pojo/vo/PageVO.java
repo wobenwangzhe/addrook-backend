@@ -14,7 +14,7 @@ import java.util.List;
  * @version 1.0.0
  * @since 1.0.0
  */
-@ApiModel(value = "分页视图信息",description = "分页视图信息PageVO")
+@ApiModel( value = "分页视图对象",description = "分页视图信息PageVO，没有pages属性，但是在前端有pages（总页数）")
 public class PageVO<E extends BaseVO > implements Serializable {
 	private static final long serialVersionUID = 17398085132821350L;
 	@ApiModelProperty(value = "分页列表")
@@ -27,12 +27,6 @@ public class PageVO<E extends BaseVO > implements Serializable {
 	protected long current;                         //现在页码
 	@ApiModelProperty(value = "排序字段信息")
 	protected List<OrderItem> orders;               //排序字段信息
-	@ApiModelProperty(value = "总页码")
-	protected Long pages;                           //总页码
-	@ApiModelProperty(value = "是否存在上一页")
-	private boolean hasPrevious;                    //是否存在上一页
-	@ApiModelProperty(value = "是否存在下一页")
-	private boolean hasNext;                        //是否存在下一页
 
 
 	public List<E> getRecords() {
@@ -75,27 +69,37 @@ public class PageVO<E extends BaseVO > implements Serializable {
 		this.orders = orders;
 	}
 
+	/**
+	 * 总页码
+	 * @return Long
+	 */
 	public Long getPages() {
-		return pages;
+		if(this.getSize()==0L){
+			//如果分页时每页数量为0,那么总页数无法计算，返回0
+			return 0L;
+		} else{
+			Long pages=this.getTotal()/this.getSize();
+			if(this.getTotal()%this.getSize()!=0L){
+				//如果总页数不能整除每页数量
+				++pages;
+			}
+			return pages;
+		}
 	}
 
-	public void setPages(Long pages) {
-		this.pages = pages;
+	/**
+	 * 是否存在上一页
+	 * @return true / false
+	 */
+	public boolean getHasPrevious() {
+		return this.current > 1;
 	}
 
-	public boolean isHasPrevious() {
-		return hasPrevious;
-	}
-
-	public void setHasPrevious(boolean hasPrevious) {
-		this.hasPrevious = hasPrevious;
-	}
-
-	public boolean isHasNext() {
-		return hasNext;
-	}
-
-	public void setHasNext(boolean hasNext) {
-		this.hasNext = hasNext;
+	/**
+	 * 是否存在下一页
+	 * @return true/false
+	 */
+	public boolean getHasNext() {
+		return this.current < this.getPages();
 	}
 }

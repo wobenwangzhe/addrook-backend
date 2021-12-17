@@ -1,39 +1,23 @@
-2021-12-15 17:27:19.324 ERROR 4076 --- [restartedMain] org.springframework.boot.SpringApplication - Application run failed
-org.springframework.boot.context.properties.bind.BindException: Failed to bind properties under 'logging.level.com' to org.springframework.boot.logging.LogLevel
-	at org.springframework.boot.context.properties.bind.Binder.handleBindError(Binder.java:363)
-	at org.springframework.boot.context.properties.bind.Binder.bind(Binder.java:323)
-	at org.springframework.boot.context.properties.bind.Binder.lambda$null$1(Binder.java:411)
-	at org.springframework.boot.context.properties.bind.Binder$Context.withSource(Binder.java:542)
-	at org.springframework.boot.context.properties.bind.Binder$Context.access$800(Binder.java:512)
-	at org.springframework.boot.context.properties.bind.Binder.lambda$bindAggregate$2(Binder.java:412)
-	at org.springframework.boot.context.properties.bind.AggregateElementBinder.bind(AggregateElementBinder.java:39)
-	at org.springframework.boot.context.properties.bind.MapBinder$EntryBinder.lambda$bindEntries$0(MapBinder.java:157)
-	at java.util.HashMap.computeIfAbsent(HashMap.java:1127)
-	at org.springframework.boot.context.properties.bind.MapBinder$EntryBinder.bindEntries(MapBinder.java:157)
-	at org.springframework.boot.context.properties.bind.MapBinder.bindAggregate(MapBinder.java:68)
-	at org.springframework.boot.context.properties.bind.AggregateBinder.bind(AggregateBinder.java:56)
-	at org.springframework.boot.context.properties.bind.Binder.lambda$bindAggregate$3(Binder.java:414)
-	at org.springframework.boot.context.properties.bind.Binder$Context.withIncreasedDepth(Binder.java:571)
-	at org.springframework.boot.context.properties.bind.Binder$Context.access$100(Binder.java:512)
-	at org.springframework.boot.context.properties.bind.Binder.bindAggregate(Binder.java:414)
-	at org.springframework.boot.context.properties.bind.Binder.bindObject(Binder.java:375)
-	at org.springframework.boot.context.properties.bind.Binder.bind(Binder.java:319)
-	at org.springframework.boot.context.properties.bind.Binder.bind(Binder.java:308)
-	at org.springframework.boot.context.properties.bind.Binder.bind(Binder.java:238)
-	at org.springframework.boot.context.properties.bind.Binder.bind(Binder.java:212)
-	at org.springframework.boot.context.logging.LoggingApplicationListener.setLogLevels(LoggingApplicationListener.java:368)
-	at org.springframework.boot.context.logging.LoggingApplicationListener.initializeFinalLoggingLevels(LoggingApplicationListener.java:335)
-	at org.springframework.boot.context.logging.LoggingApplicationListener.initialize(LoggingApplicationListener.java:282)
-	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEnvironmentPreparedEvent(LoggingApplicationListener.java:239)
-	at org.springframework.boot.context.logging.LoggingApplicationListener.onApplicationEvent(LoggingApplicationListener.java:216)
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:172)
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:165)
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:139)
-	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:127)
-	at org.springframework.boot.context.event.EventPublishingRunListener.environmentPrepared(EventPublishingRunListener.java:80)
-	at org.springframework.boot.SpringApplicationRunListeners.environmentPrepared(SpringApplicationRunListeners.java:53)
-	at org.springframework.boot.SpringApplication.prepareEnvironment(SpringApplication.java:342)
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307)
+2021-12-16 11:28:00.613 ERROR 2764 --- [restartedMain] org.springframework.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'inMemorySwaggerResourcesProvider' defined in URL [jar:file:/D:/ruanjian/localrepository/io/springfox/springfox-swagger-common/3.0.0/springfox-swagger-common-3.0.0.jar!/springfox/documentation/swagger/web/InMemorySwaggerResourcesProvider.class]: Bean instantiation via constructor failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [springfox.documentation.swagger.web.InMemorySwaggerResourcesProvider]: Constructor threw exception; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'createRestAPI' defined in class path resource [org/example/base/configuration/SwaggerConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [springfox.documentation.spring.web.plugins.Docket]: Factory method 'createRestAPI' threw exception; nested exception is java.lang.NoClassDefFoundError: org/example/base/util/SwaggerPropertiesUtil
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:314)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:295)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1361)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1208)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:556)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:897)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:879)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:551)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:755)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:402)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:312)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1247)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1236)
 	at org.example.SystemApplicationStarter.main(SystemApplicationStarter.java:16)
@@ -42,24 +26,77 @@ org.springframework.boot.context.properties.bind.BindException: Failed to bind p
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.lang.reflect.Method.invoke(Method.java:498)
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
-Caused by: org.springframework.core.convert.ConversionFailedException: Failed to convert from type [java.lang.String] to type [org.springframework.boot.logging.LogLevel] for value 'springboot:debug'; nested exception is java.lang.IllegalArgumentException: No enum constant org.springframework.boot.logging.LogLevel.springboot:debug
-	at org.springframework.core.convert.support.ConversionUtils.invokeConverter(ConversionUtils.java:47)
-	at org.springframework.core.convert.support.GenericConversionService.convert(GenericConversionService.java:192)
-	at org.springframework.boot.context.properties.bind.BindConverter$CompositeConversionService.convert(BindConverter.java:170)
-	at org.springframework.boot.context.properties.bind.BindConverter.convert(BindConverter.java:96)
-	at org.springframework.boot.context.properties.bind.BindConverter.convert(BindConverter.java:88)
-	at org.springframework.boot.context.properties.bind.Binder.bindProperty(Binder.java:434)
-	at org.springframework.boot.context.properties.bind.Binder.bindObject(Binder.java:379)
-	at org.springframework.boot.context.properties.bind.Binder.bind(Binder.java:319)
-	... 40 common frames omitted
-Caused by: java.lang.IllegalArgumentException: No enum constant org.springframework.boot.logging.LogLevel.springboot:debug
-	at org.springframework.boot.convert.LenientObjectToEnumConverterFactory$LenientToEnumConverter.findEnum(LenientObjectToEnumConverterFactory.java:93)
-	at org.springframework.boot.convert.LenientObjectToEnumConverterFactory$LenientToEnumConverter.convert(LenientObjectToEnumConverterFactory.java:80)
-	at org.springframework.boot.convert.LenientObjectToEnumConverterFactory$LenientToEnumConverter.convert(LenientObjectToEnumConverterFactory.java:61)
-	at org.springframework.core.convert.support.GenericConversionService$ConverterFactoryAdapter.convert(GenericConversionService.java:437)
-	at org.springframework.core.convert.support.ConversionUtils.invokeConverter(ConversionUtils.java:41)
-	... 47 common frames omitted
-2021-12-15 18:19:28.588 ERROR 14228 --- [restartedMain] o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [springfox.documentation.swagger.web.InMemorySwaggerResourcesProvider]: Constructor threw exception; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'createRestAPI' defined in class path resource [org/example/base/configuration/SwaggerConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [springfox.documentation.spring.web.plugins.Docket]: Factory method 'createRestAPI' threw exception; nested exception is java.lang.NoClassDefFoundError: org/example/base/util/SwaggerPropertiesUtil
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:217)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:117)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:310)
+	... 25 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'createRestAPI' defined in class path resource [org/example/base/configuration/SwaggerConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [springfox.documentation.spring.web.plugins.Docket]: Factory method 'createRestAPI' threw exception; nested exception is java.lang.NoClassDefFoundError: org/example/base/util/SwaggerPropertiesUtil
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:657)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:485)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1341)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1181)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:556)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1109)
+	at org.springframework.plugin.core.support.AbstractTypeAwareSupport$BeansOfTypeTargetSource.lambda$getBeansOfTypeExcept$1(AbstractTypeAwareSupport.java:224)
+	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:193)
+	at java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:175)
+	at java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:948)
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:482)
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:472)
+	at java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:708)
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:499)
+	at org.springframework.plugin.core.support.AbstractTypeAwareSupport$BeansOfTypeTargetSource.getBeansOfTypeExcept(AbstractTypeAwareSupport.java:225)
+	at org.springframework.plugin.core.support.AbstractTypeAwareSupport$BeansOfTypeTargetSource.getTarget(AbstractTypeAwareSupport.java:204)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:192)
+	at com.sun.proxy.$Proxy126.stream(Unknown Source)
+	at org.springframework.plugin.core.PluginRegistrySupport.initialize(PluginRegistrySupport.java:78)
+	at org.springframework.plugin.core.OrderAwarePluginRegistry.initialize(OrderAwarePluginRegistry.java:216)
+	at org.springframework.plugin.core.PluginRegistrySupport.getPlugins(PluginRegistrySupport.java:60)
+	at org.springframework.plugin.core.SimplePluginRegistry.getPlugins(SimplePluginRegistry.java:100)
+	at springfox.documentation.spring.web.plugins.DocumentationPluginsManager.documentationPlugins(DocumentationPluginsManager.java:105)
+	at springfox.documentation.swagger.web.InMemorySwaggerResourcesProvider.<init>(InMemorySwaggerResourcesProvider.java:62)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:204)
+	... 27 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [springfox.documentation.spring.web.plugins.Docket]: Factory method 'createRestAPI' threw exception; nested exception is java.lang.NoClassDefFoundError: org/example/base/util/SwaggerPropertiesUtil
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:652)
+	... 61 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: org/example/base/util/SwaggerPropertiesUtil
+	at org.example.base.configuration.SwaggerConfiguration.apiInfo(SwaggerConfiguration.java:44)
+	at org.example.base.configuration.SwaggerConfiguration.createRestAPI(SwaggerConfiguration.java:26)
+	at org.example.base.configuration.SwaggerConfiguration$$EnhancerBySpringCGLIB$$5a97a22d.CGLIB$createRestAPI$0(<generated>)
+	at org.example.base.configuration.SwaggerConfiguration$$EnhancerBySpringCGLIB$$5a97a22d$$FastClassBySpringCGLIB$$f950f053.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:331)
+	at org.example.base.configuration.SwaggerConfiguration$$EnhancerBySpringCGLIB$$5a97a22d.createRestAPI(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	... 62 common frames omitted
+Caused by: java.lang.ClassNotFoundException: org.example.base.util.SwaggerPropertiesUtil
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:382)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:418)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:355)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:351)
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Class.java:348)
+	at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:144)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:351)
+	... 74 common frames omitted
+2021-12-16 17:38:30.828 ERROR 19724 --- [restartedMain] o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
 
 ***************************
 APPLICATION FAILED TO START
@@ -67,40 +104,9 @@ APPLICATION FAILED TO START
 
 Description:
 
-A component required a bean named 'userService' that could not be found.
-
-
-Action:
-
-Consider defining a bean named 'userService' in your configuration.
-
-2021-12-15 18:47:11.922 ERROR 14228 --- [restartedMain] o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-A component required a bean named 'userService' that could not be found.
-
+Web server failed to start. Port 80 was already in use.
 
 Action:
 
-Consider defining a bean named 'userService' in your configuration.
-
-2021-12-15 19:11:53.462 ERROR 14228 --- [restartedMain] o.s.b.diagnostics.LoggingFailureAnalysisReporter - 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-A component required a bean named 'userService' that could not be found.
-
-
-Action:
-
-Consider defining a bean named 'userService' in your configuration.
+Identify and stop the process that's listening on port 80 or configure this application to listen on another port.
 

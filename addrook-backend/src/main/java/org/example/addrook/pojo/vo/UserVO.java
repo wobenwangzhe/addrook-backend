@@ -21,6 +21,7 @@ public final class UserVO extends BaseVO implements Serializable {
 	private Long id;            //主键
 	@ApiModelProperty(value = "姓名")
 	private String name;        //姓名
+
 	@ApiModelProperty(value = "手机号码")
 	@NotNull
 	private String cellphone;   //手机号码
